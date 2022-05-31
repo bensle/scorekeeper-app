@@ -1,11 +1,3 @@
 .App {
   display: grid;
-  /* gap: 20px; */
-  margin: 0;
-  padding: 0;
-  justify-items: center;
-}
-
-ul {
-  padding: 0;
 }

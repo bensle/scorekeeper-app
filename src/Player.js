@@ -1,9 +1,11 @@
 import './Player.css';
-export default function Player({ text, score }) {
+export default function Player({ singlePlayer }) {
   return (
     <li className="Player">
-      <span className="player__name">{text}</span> <button>-</button> {score}
-      <button>+</button>
+      <span className="Player__name">{singlePlayer.name}</span>
+      <button className="Player__button">-</button>
+      <span className="Player__score">{singlePlayer.score}</span>
+      <button className="Player__button">+</button>
     </li>
   );
 }
@@ -13,3 +15,5 @@ export default function Player({ text, score }) {
 //   <h2 className="playerscore">{score}</h2>
 //   <button className="subtractbutton">-</button>
 // </section>
+
+// {/* <span className="player__name">{text}</span> */}
