@@ -7,11 +7,12 @@
 .Player {
   display: grid;
   grid-auto-flow: column;
+  border-bottom: solid 2px;
 }
 
 /* wenn Player ohne feste breit  -> buttons unterschiedliche Größe?! */
 .Player__name {
-  width: 2rem;
+  width: 50vw;
 }
 .Player__score {
   text-align: center;
