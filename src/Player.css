@@ -1,0 +1,19 @@
+.Player__list {
+  display: grid;
+  list-style: none;
+  gap: 10px;
+  margin: 0 20px 20px 20px;
+}
+.Player {
+  display: grid;
+  grid-auto-flow: column;
+  border-bottom: solid 2px;
+}
+
+/* wenn Player ohne feste breit  -> buttons unterschiedliche Größe?! */
+.Player__name {
+  width: 50vw;
+}
+.Player__score {
+  text-align: center;
+}
