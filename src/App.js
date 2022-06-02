@@ -1,25 +1,43 @@
 import './App.css';
-import { Playerdata } from './Playerdata';
 import Button from './Button';
-import Heading from './Heading';
 import Player from './Player';
+import Heading from './Heading';
 import PlayerForm from './PlayerForm';
+import { useState } from 'react';
+import { nanoid } from 'nanoid';
 
 function App() {
+  const [players, setPlayers] = useState([]);
+
+  function createPlayer(player) {
+    setPlayers([
+      ...players,
+      {
+        id: nanoid(),
+        name: player,
+        score: 0,
+      },
+    ]);
+    console.log('AppJS--', player);
+  }
+
   return (
     <div className="App">
       <Heading />
       {/* eslint-disable */}
       <ul className="Player__list" role="list">
-        {Playerdata.map((singlePlayer) => (
-          <Player key={singlePlayer.id} singlePlayer={singlePlayer} />
+        {players.map((player) => (
+          <Player
+            id={player.id}
+            key={player.id}
+            player={player.name}
+            score={player.score}
+          />
         ))}
-        {/* <Player text="John Doe" score={30} />
-        <Player text="Jane Doe" score={30} /> */}
       </ul>
       <Button text="Reset scores" />
       <Button text="New game" />
-      <PlayerForm />
+      <PlayerForm onCreatePlayer={createPlayer} />
     </div>
   );
 }
