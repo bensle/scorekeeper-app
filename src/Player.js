@@ -1,12 +1,22 @@
 import './Player.css';
-export default function Player({ id, player, score }) {
+export default function Player({
+  id,
+  player,
+  score,
+  onIncreaseScore,
+  onDecreaseScore,
+}) {
   console.log('PlayerJS--', player);
   return (
     <li className="Player">
       <span className="Player__name">{player}</span>
-      <button className="Player__button">-</button>
+      <button onClick={onDecreaseScore} className="Player__button">
+        -
+      </button>
       <span className="Player__score">{score}</span>
-      <button className="Player__button">+</button>
+      <button onClick={onIncreaseScore} className="Player__button">
+        +
+      </button>
     </li>
   );
 }
