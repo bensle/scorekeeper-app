@@ -42,6 +42,17 @@ function App() {
       })
     );
   }
+  function resetScores() {
+    setPlayers(
+      players.map((player) => {
+        return { ...player, score: (player.score = 0) };
+      })
+    );
+  }
+
+  function resetAllPlayers() {
+    setPlayers([]);
+  }
 
   // ------ Slice Variante ----- (also delete)
   // function increaseScore(index) {
@@ -78,8 +89,8 @@ function App() {
           />
         ))}
       </ul>
-      <Button text="Reset scores" />
-      <Button text="Reset All" />
+      <Button onClick={resetScores}>Reset Scores</Button>
+      <Button onClick={resetAllPlayers}>New Game</Button>
       <PlayerForm onCreatePlayer={createPlayer} />
     </div>
   );
