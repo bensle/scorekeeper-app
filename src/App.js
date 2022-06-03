@@ -22,23 +22,46 @@ function App() {
   console.log('AppJS--', players);
 
   function increaseScore(index) {
-    const currentPlayer = players[index];
-    setPlayers([
-      ...players.slice(0, index),
-      { ...currentPlayer, score: currentPlayer.score + 1 },
-      ...players.slice(index + 1),
-    ]);
+    setPlayers(
+      players.map((player, playerIndex) => {
+        if (index === playerIndex) {
+          return { ...player, score: player.score + 1 };
+        }
+        return player;
+      })
+    );
   }
 
   function decreaseScore(index) {
-    const currentPlayer = players[index];
-    setPlayers([
-      ...players.slice(0, index),
-      { ...currentPlayer, score: currentPlayer.score - 1 },
-      ...players.slice(index + 1),
-    ]);
+    setPlayers(
+      players.map((player, playerIndex) => {
+        if (index === playerIndex) {
+          return { ...player, score: player.score - 1 };
+        }
+        return player;
+      })
+    );
   }
 
+  // ------ Slice Variante ----- (also delete)
+  // function increaseScore(index) {
+  //   const currentPlayer = players[index];
+  //   setPlayers([
+  //     ...players.slice(0, index),
+  //     { ...currentPlayer, score: currentPlayer.score + 1 },
+  //     ...players.slice(index + 1),
+  //   ]);
+  // }
+
+  // function decreaseScore(index) {
+  //   const currentPlayer = players[index];
+  //   setPlayers([
+  //     ...players.slice(0, index),
+  //     { ...currentPlayer, score: currentPlayer.score - 1 },
+  //     ...players.slice(index + 1),
+  //   ]);
+  // }
+  //___________________________________________________________________________
   return (
     <div className="App">
       <Heading />
