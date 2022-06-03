@@ -5,9 +5,12 @@ export default function PlayerForm({ onCreatePlayer }) {
     event.preventDefault();
     const form = event.target;
     const { name } = form.elements;
-    onCreatePlayer(name.value);
 
     console.log('FormJS', name.value);
+
+    onCreatePlayer(name.value);
+    form.reset();
+    name.focus();
   }
 
   return (
