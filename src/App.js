@@ -3,11 +3,16 @@ import Button from './Button';
 import Player from './Player';
 import Heading from './Heading';
 import PlayerForm from './PlayerForm';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { nanoid } from 'nanoid';
+import { getFromLocal, setToLocal } from './lib/localStorage';
 
 function App() {
-  const [players, setPlayers] = useState([]);
+  //-----------------?? nullish coalescing operator------------------------
+  // = returned das, was auf der rechten Seite steht,
+  //  wenn das, was auf der linken Seite steh "null" oder "undefinded" ist!
+  const [players, setPlayers] = useState(getFromLocal('players') ?? []);
+  useEffect(() => setToLocal('players', players), [players]);
 
   function createPlayer(player) {
     setPlayers([
