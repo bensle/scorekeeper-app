@@ -11,13 +11,9 @@ export default function Player({
   return (
     <PlayerList>
       <PlayerName>{player}</PlayerName>
-      <StyledListButton onClick={onDecreaseScore} className="Player__button">
-        -
-      </StyledListButton>
-      <PlayerScore className="Player__score">{score}</PlayerScore>
-      <StyledListButton onClick={onIncreaseScore} className="Player__button">
-        +
-      </StyledListButton>
+      <StyledListButton onClick={onDecreaseScore}>-</StyledListButton>
+      <PlayerScore>{score}</PlayerScore>
+      <StyledListButton onClick={onIncreaseScore}>+</StyledListButton>
     </PlayerList>
   );
 }

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export default function Heading() {
-  return <StyledHeading className="Heading">Scorekeeper</StyledHeading>;
+  return <StyledHeading>Scorekeeper</StyledHeading>;
 }
 
 const StyledHeading = styled.h1`

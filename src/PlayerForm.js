@@ -13,11 +13,7 @@ export default function PlayerForm({ onCreatePlayer }) {
   }
 
   return (
-    <StyledPlayerForm
-      className="PlayerForm"
-      aria-labelledby="Player"
-      onSubmit={onSubmit}
-    >
+    <StyledPlayerForm aria-labelledby="Player" onSubmit={onSubmit}>
       <StyledInputHeading id="Player"> Add new Player</StyledInputHeading>
       <label className="Playerform__label" htmlFor="name"></label>
       <input className="Playerform__input" type="text" id="name" />
