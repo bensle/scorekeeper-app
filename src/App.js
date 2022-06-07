@@ -105,11 +105,15 @@ export default App;
 
 const AppContainer = styled.div`
   display: grid;
+  margin: 0 auto;
+  gap: 20px;
+
+  width: 300px;
 `;
 
 const PlayerList = styled.ul`
   display: grid;
   list-style: none;
   gap: 10px;
-  margin: 0 20px 20px 20px;
+  /* margin: 0 20px 20px 20px; */
 `;

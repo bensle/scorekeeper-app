@@ -11,26 +11,33 @@ export default function Player({
   return (
     <PlayerList>
       <PlayerName>{player}</PlayerName>
-      <button onClick={onDecreaseScore} className="Player__button">
+      <StyledListButton onClick={onDecreaseScore} className="Player__button">
         -
-      </button>
+      </StyledListButton>
       <PlayerScore className="Player__score">{score}</PlayerScore>
-      <button onClick={onIncreaseScore} className="Player__button">
+      <StyledListButton onClick={onIncreaseScore} className="Player__button">
         +
-      </button>
+      </StyledListButton>
     </PlayerList>
   );
 }
 
 const PlayerList = styled.li`
-  display: grid;
-  grid-auto-flow: column;
-  border-bottom: solid 2px;
+  display: flex;
+  justify-content: end;
+  gap: 10px;
 `;
 
 const PlayerName = styled.span`
-  width: 50vw;
+  margin-right: auto;
 `;
 const PlayerScore = styled.span`
   text-align: center;
+`;
+const StyledListButton = styled.button`
+  width: 20px;
+  height: 20px;
+  &:hover {
+    background-color: crimson;
+  }
 `;

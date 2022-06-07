@@ -8,8 +8,8 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
   }
   body {
-    /* height: 100vh; */
-    font-family: monospace;
+    font-family: 'Play', sans-serif;
+    background-color:silver;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
