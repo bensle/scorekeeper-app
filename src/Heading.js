@@ -1,4 +1,12 @@
-import './Heading.css';
+import styled from 'styled-components';
+
 export default function Heading() {
-  return <h1 className="Heading">Scorekeeper Version A</h1>;
+  return (
+    <StyledHeading className="Heading">Scorekeeper Version A</StyledHeading>
+  );
 }
+
+const StyledHeading = styled.h1`
+  text-align: center;
+  margin: 20px;
+`;

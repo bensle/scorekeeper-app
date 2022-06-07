@@ -1,5 +1,3 @@
-import './PlayerForm.css';
-
 export default function PlayerForm({ onCreatePlayer }) {
   function onSubmit(event) {
     event.preventDefault();

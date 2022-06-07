@@ -1,4 +1,3 @@
-import './App.css';
 import Button from './Button';
 import Player from './Player';
 import Heading from './Heading';
@@ -6,6 +5,7 @@ import PlayerForm from './PlayerForm';
 import { useEffect, useState } from 'react';
 import { nanoid } from 'nanoid';
 import { getFromLocal, setToLocal } from './lib/localStorage';
+import styled from 'styled-components';
 
 function App() {
   //-----------------?? nullish coalescing operator------------------------
@@ -79,10 +79,10 @@ function App() {
   // }
   //___________________________________________________________________________
   return (
-    <div className="App">
+    <AppContainer>
       <Heading />
       {/* eslint-disable-next-line */}
-      <ul className="Player__list" role="list">
+      <PlayerList role="list">
         {players.map((player, index) => (
           <Player
             id={player.id}
@@ -93,12 +93,23 @@ function App() {
             onDecreaseScore={() => decreaseScore(index)}
           />
         ))}
-      </ul>
+      </PlayerList>
       <Button onClick={resetScores}>Reset Scores</Button>
       <Button onClick={resetAllPlayers}>New Game</Button>
       <PlayerForm onCreatePlayer={createPlayer} />
-    </div>
+    </AppContainer>
   );
 }
 
 export default App;
+
+const AppContainer = styled.div`
+  display: grid;
+`;
+
+const PlayerList = styled.ul`
+  display: grid;
+  list-style: none;
+  gap: 10px;
+  margin: 0 20px 20px 20px;
+`;
