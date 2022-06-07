@@ -1,5 +1,4 @@
-import './PlayerForm.css';
-
+import styled from 'styled-components';
 export default function PlayerForm({ onCreatePlayer }) {
   function onSubmit(event) {
     event.preventDefault();
@@ -14,16 +13,36 @@ export default function PlayerForm({ onCreatePlayer }) {
   }
 
   return (
-    <form className="PlayerForm" aria-labelledby="Player" onSubmit={onSubmit}>
-      <h2 id="Player"> Add new Player</h2>
+    <StyledPlayerForm aria-labelledby="Player" onSubmit={onSubmit}>
+      <StyledInputHeading id="Player"> Add new Player</StyledInputHeading>
       <label className="Playerform__label" htmlFor="name"></label>
-      <input
-        className="Playerform__input"
-        type="text"
-        id="name"
-        placeholder="Player name"
-      />
-      <button>Submit</button>
-    </form>
+      <input className="Playerform__input" type="text" id="name" />
+      <StyledSubmitButton>Submit</StyledSubmitButton>
+    </StyledPlayerForm>
   );
 }
+
+const StyledPlayerForm = styled.form`
+  display: grid;
+  gap: 8px;
+`;
+
+const StyledInputHeading = styled.h2`
+  text-align: center;
+  font-size: 1rem;
+`;
+
+const StyledSubmitButton = styled.button`
+  font-family: inherit;
+  width: 9rem;
+  padding: 0.3rem;
+  font-weight: bold;
+  border: solid 2px white;
+  border-radius: 10px;
+  background-color: silver;
+  width: 100%;
+  &:hover {
+    background-color: crimson;
+    transition: 1s;
+  }
+`;

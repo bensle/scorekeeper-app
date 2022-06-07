@@ -1,4 +1,5 @@
-import './Player.css';
+import styled from 'styled-components';
+
 export default function Player({
   id,
   player,
@@ -8,15 +9,31 @@ export default function Player({
 }) {
   console.log('PlayerJS--', player);
   return (
-    <li className="Player">
-      <span className="Player__name">{player}</span>
-      <button onClick={onDecreaseScore} className="Player__button">
-        -
-      </button>
-      <span className="Player__score">{score}</span>
-      <button onClick={onIncreaseScore} className="Player__button">
-        +
-      </button>
-    </li>
+    <PlayerList>
+      <PlayerName>{player}</PlayerName>
+      <StyledListButton onClick={onDecreaseScore}>-</StyledListButton>
+      <PlayerScore>{score}</PlayerScore>
+      <StyledListButton onClick={onIncreaseScore}>+</StyledListButton>
+    </PlayerList>
   );
 }
+
+const PlayerList = styled.li`
+  display: flex;
+  justify-content: end;
+  gap: 10px;
+`;
+
+const PlayerName = styled.span`
+  margin-right: auto;
+`;
+const PlayerScore = styled.span`
+  text-align: center;
+`;
+const StyledListButton = styled.button`
+  width: 20px;
+  height: 20px;
+  &:hover {
+    background-color: crimson;
+  }
+`;
