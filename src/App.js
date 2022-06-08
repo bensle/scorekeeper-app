@@ -1,7 +1,7 @@
-import Button from './Button';
-import Player from './Player';
-import Heading from './Heading';
-import PlayerForm from './PlayerForm';
+import Button from './Button/Button';
+import Player from './Player/Player';
+import Heading from './Heading/Heading';
+import PlayerForm from './Playerform/PlayerForm';
 import { useEffect, useState } from 'react';
 import { nanoid } from 'nanoid';
 import { getFromLocal, setToLocal } from './lib/localStorage';

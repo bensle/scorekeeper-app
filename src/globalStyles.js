@@ -9,7 +9,7 @@ const GlobalStyle = createGlobalStyle`
   }
   body {
     font-family: 'Play', sans-serif;
-    background-color:silver;
+    background-color:white;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
