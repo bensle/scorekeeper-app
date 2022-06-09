@@ -1,11 +1,13 @@
-import Button from './Button/Button';
-import Player from './Player/Player';
+// import Button from './Button/Button';
+// import Player from './Player/Player';
 import Heading from './Heading/Heading';
 import PlayerForm from './Playerform/PlayerForm';
 import { useEffect, useState } from 'react';
 import { nanoid } from 'nanoid';
 import { getFromLocal, setToLocal } from './lib/localStorage';
 import styled from 'styled-components';
+import Navigation from './Navigation/Navigation';
+import GamePage from './Pages/GamePage';
 
 function App() {
   //-----------------?? nullish coalescing operator------------------------
@@ -14,6 +16,25 @@ function App() {
   const [players, setPlayers] = useState(getFromLocal('players') ?? []);
   useEffect(() => setToLocal('players', players), [players]);
 
+  return (
+    <AppContainer>
+      <Heading />
+      {/* eslint-disable-next-line */}
+      {/* <PlayerList role="list"> </PlayerList> */}
+      <GamePage
+        onResetScores={resetScores}
+        onIncreaseScore={increaseScore}
+        onDecreaseScore={decreaseScore}
+        onResetAllPlayers={resetAllPlayers}
+        players={players}
+      />
+
+      <PlayerForm onCreatePlayer={createPlayer} />
+      <Navigation />
+    </AppContainer>
+  );
+
+  //------------------------Funktionen-----------------------
   function createPlayer(player) {
     setPlayers([
       ...players,
@@ -78,27 +99,6 @@ function App() {
   //   ]);
   // }
   //___________________________________________________________________________
-  return (
-    <AppContainer>
-      <Heading />
-      {/* eslint-disable-next-line */}
-      <PlayerList role="list">
-        {players.map((player, index) => (
-          <Player
-            id={player.id}
-            key={player.id}
-            player={player.name}
-            score={player.score}
-            onIncreaseScore={() => increaseScore(index)}
-            onDecreaseScore={() => decreaseScore(index)}
-          />
-        ))}
-      </PlayerList>
-      <Button onClick={resetScores}>Reset Scores</Button>
-      <Button onClick={resetAllPlayers}>New Game</Button>
-      <PlayerForm onCreatePlayer={createPlayer} />
-    </AppContainer>
-  );
 }
 
 export default App;
@@ -111,9 +111,8 @@ const AppContainer = styled.div`
   width: 300px;
 `;
 
-const PlayerList = styled.ul`
-  display: grid;
-  list-style: none;
-  gap: 10px;
-  /* margin: 0 20px 20px 20px; */
-`;
+// const PlayerList = styled.ul`
+//   display: grid;
+//   list-style: none;
+//   gap: 10px;
+// `;

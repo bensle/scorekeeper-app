@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 export default function Button({ onClick, children }) {
+  console.log(children);
   return <ResetButton onClick={onClick}>{children}</ResetButton>;
 }
 
@@ -13,7 +14,8 @@ const ResetButton = styled.button`
   width: 100%;
   font-family: inherit;
   &:hover {
-    background-color: crimson;
+    background-color: ${(props) =>
+      props.children === 'Reset Scores' ? 'crimson' : 'lightgreen'};
     transition: 1s;
   }
 `;

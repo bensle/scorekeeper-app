@@ -42,7 +42,7 @@ const StyledSubmitButton = styled.button`
   background-color: silver;
   width: 100%;
   &:hover {
-    background-color: crimson;
+    background-color: gold;
     transition: 1s;
   }
 `;
